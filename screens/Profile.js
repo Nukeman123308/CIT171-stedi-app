@@ -103,7 +103,7 @@ const Profile = (props) => {
             backgroundColor: "white",
             borderRadius: 10,
             margin: 20,
-            width: 320,
+            width: 320, 
             shadowColor: "#000",
             shadowOffset: {
               width: 0,
@@ -133,12 +133,11 @@ const Profile = (props) => {
             <View style={{ marginTop: 50 }}>
               <Button onPress={myCustomerShare} title="Share" />
               <Button
-                OnPress={() => {
+                onPress={() => {
                   AsyncStorage.removeItem("sessionToken");
-                  props.setLoggedInState("NOT_LOGGED_IN");
-                }}
-                title="Logout"
-              />
+                  props.setLoggedInState("NOT_LOGGED_IN"); 
+                }} 
+                title='Logout'/> 
             </View>
           </CardContent>
         </Card>

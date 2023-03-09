@@ -20,7 +20,7 @@ import Profile from '../screens/Profile';
 
 const Stack = createNativeStackNavigator();
 
-const HomeStackScreen = (props) =>{
+const HomeStackScreen = (props) =>{ 
 
     return(
     
@@ -64,14 +64,17 @@ const CounterStackScreen = () =>{
     );
 }
 
-const ProfileStackScreen = () =>{
+const ProfileStackScreen = (props) =>{ 
     return(
      <Stack.Navigator
      screenOptions= {{
         headerStyle:{backgroundColor:'#A0CE4E'},
         headerTintColor:'white'}}>
 
-        <Stack.Screen name="Profile" component={Profile} options={{
+        <Stack.Screen name="Profile" 
+      //   component={Profile} 
+      children={() =><Profile setLoggedInState={props.setLoggedInState}/>} 
+      options={{ 
              headerTitleAlign: "center",
              headerTitleStyle:{
                fontWeight:'bold', 
@@ -173,7 +176,8 @@ export default function Navigation (props) {
             />
             <Tab.Screen name="TabProfile" 
             //component={ProfileStackScreen}
-            children={()=><ProfileStackScreen setloggedInState={'props.loggedInState'}/>}
+            children={()=>
+               <ProfileStackScreen setLoggedInState={props.setLoggedInState}/>} 
             options={{
                 // tabBarColor:'pink',
                    tabBarLabel: 'Profile',
